@@ -12,8 +12,9 @@ Run "meteor reset"
 
 TODO (WIP):
 
+- Improve the chat bot using ElasticSearch
+- Support unique guest users
 - Scroll down chat page when inserting a new message
+- Fix flickering bug when loading app
 - Improve message timestamp UI (using moment JS)
-- Support multi guest user
-- Support a chat bot
-- Support a smart chat bot
+- Improve UI/UX
