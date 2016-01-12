@@ -1,0 +1,56 @@
+<head>
+    <title>ChatBot</title>
+</head>
+
+<body>
+    <header>
+        <div class="box-row">
+            <h1>ChatBot</h1>
+        </div>
+    </header>
+    <main>
+        {{> chat }}
+    </main>
+    <footer>
+        {{> form }}
+    </footer>
+</body>
+
+<!--
+----------------------------------------------------
+TEMPLATES
+----------------------------------------------------
+-->
+
+<template name="chat">
+    {{#if messagesCount}}
+        <ul class="messages">
+            {{#each messages}}
+                <li>
+                    <div class="box-row">
+                        <i class="fa fa-user avatar"></i>
+                        <p class="user"><strong>{{name}}</strong> <span class="time">{{fromNow time}}</span></p>
+                        <p class="message">{{message}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <div class="hero">
+            {{#if isLoading}}
+                <p>Loading...</p>
+            {{else}}
+                <p>This chat room is still empty...<br>Be the first one to type a message!</p>
+            {{/if}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="form">
+    <div class="box-row">
+        <form>
+            <input type="text" name="message" placeholder="Type a message here" autocomplete="off">
+            <i class="fa {{#if isLoading}}fa-circle-o-notch fa-spin{{else}}fa-arrow-circle-right{{/if}}"></i>
+        </form>
+    </div>
+</template>
